@@ -5,10 +5,11 @@ const helmet = require('helmet'),
     http = require('http'),
     bodyParser = require('body-parser'),
     healthcheck = require('./routes/healthcheck'),
+    notFound = require('./routes/notFound'),
     cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.set('port', port);
 app.use(bodyParser.json({ limit: '10kb' }));
@@ -19,6 +20,7 @@ app.use(cors());
 const path = '/';
 
 app.get(path + 'healthcheck', healthcheck.index);
+app.use(notFound.index);
 
 const server = http.createServer(app);
 server.listen(app.get('port'), function(){
@@ -27,7 +29,6 @@ server.listen(app.get('port'), function(){
 
 const closeServer = function () {
     //if (err) {console.error('uncaughtException: ' + err);}
-    process.exit(0);
 };
 
 process.on('exit', closeServer);

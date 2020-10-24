@@ -19,17 +19,18 @@
     "helmet": "3.1.0"
   },
   "devDependencies": {
-    "chai": "3.5.0",
+    "chai": "^4.2.0",
     "eslint": "4.15.0",
     "eslint-plugin-security": "1.4.0",
-    "mocha": "3.1.2",
-    "supertest": "2.0.1"
+    "mocha": "^8.2.0",
+    "superagent": "^6.1.0",
+    "supertest": "^5.0.0"
   },
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "test": "node app.js",
+    "test": "./node_modules/.bin/_mocha test --timeout 10000 --exit",
     "lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
     "lint-fix": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
   },
