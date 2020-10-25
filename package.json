@@ -32,6 +32,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "nyc  --reporter=html --reporter=text mocha test --recursive --timeout 10000 --exit",
+    "test-enforce": "nyc  --reporter=html --reporter=text --check-coverage --statements 80 --functions 80 --lines 80 mocha test --recursive --timeout 10000 --exit",
     "lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
     "lint-fix": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
   },
