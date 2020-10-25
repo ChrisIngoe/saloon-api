@@ -6,10 +6,11 @@ const helmet = require('helmet'),
   bodyParser = require('body-parser'),
   healthcheck = require('./routes/healthcheck'),
   notFound = require('./routes/notFound'),
+  barman = require('./routes/barman'),
   cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 app.set('port', port);
 app.use(bodyParser.json({ limit: '10kb' }));
@@ -20,6 +21,9 @@ app.use(cors());
 const path = '/';
 
 app.get(path + 'healthcheck', healthcheck.index);
+app.get(path + 'single', barman.single);
+app.get(path + 'double', barman.double);
+app.get(path + 'bottle', barman.bottle);
 app.use(notFound.index);
 
 const server = http.createServer(app);
