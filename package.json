@@ -22,6 +22,8 @@
     "chai": "^4.2.0",
     "eslint": "4.15.0",
     "eslint-plugin-security": "1.4.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
     "mocha": "^8.2.0",
     "nyc": "^15.1.0",
     "prettier": "^2.1.2",
@@ -43,5 +45,14 @@
   "engines": {
     "node": "12.14.0",
     "npm": "6.12.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
