@@ -19,3 +19,12 @@
 - Different configuration settings can be set in config/[ENVIRONMENT].json
 - If nothing set "development" will be the default.
 - Possible environments are: development, qa, staging, production
+
+## TOUBLESHOOTING
+
+### Kill open connections
+
+```
+lsof -i:3000
+kill -9 [PID]
+```
