@@ -52,7 +52,7 @@
     }
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
+    "*.js": "./node_modules/.bin/eslint --ignore-path .gitignore . --cache --fix",
     "*.{js,css,md}": "prettier --write"
   }
 }
